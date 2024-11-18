@@ -23,7 +23,7 @@ public class MultiplicationTableBuilder {
         StringBuilder tableString = new StringBuilder();
         for(int rowNumber = 1; rowNumber <= rowSum; rowNumber++) {
             Integer columnSum = columnSumEachRow.get(rowNumber - 1);
-            tableString.append(generateLineString(rowNumber, rowNumber, columnSum));
+            tableString.append(generateLineString(start, rowNumber + start - 1, columnSum));
             if (rowNumber < end) {
                 tableString.append(System.lineSeparator());
             }
@@ -51,9 +51,10 @@ public class MultiplicationTableBuilder {
 
     private String generateLineString(int startColumn, int rowNumber, int columnSum) {
         StringBuilder lineString = new StringBuilder();
-        for(int currentColumn = startColumn; currentColumn <= columnSum; currentColumn++) {
+        int currentColumn = startColumn;
+        for(int expressionCount = 0; expressionCount < (columnSum); expressionCount++, currentColumn++) {
             lineString.append(generateExpression(currentColumn, rowNumber));
-            if (currentColumn < columnSum) {
+            if (expressionCount < columnSum -1) {
                 lineString.append(" ");
             }
         }
