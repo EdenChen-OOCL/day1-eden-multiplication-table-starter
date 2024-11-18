@@ -20,8 +20,15 @@ public class MultiplicationTableBuilder {
         }
         int rowSum = calculateRowSum(start, end);
         List<Integer> columnSumEachRow = calculateColumnSumEachRow(rowSum);
-
-        return "";
+        StringBuilder tableString = new StringBuilder();
+        for(int rowNumber = 1; rowNumber <= rowSum; rowNumber++) {
+            Integer columnSum = columnSumEachRow.get(rowNumber - 1);
+            tableString.append(generateLineString(rowNumber, rowNumber, columnSum));
+            if (rowNumber < end) {
+                tableString.append(System.lineSeparator());
+            }
+        }
+        return tableString.toString();
     }
 
     private Boolean validateStartAndEnd(int start, int end) {
