@@ -12,6 +12,16 @@ public class MultiplicationTableBuilder {
     }
 
     public String generateMultiplicationTable(int start, int end) {
+        if (!validateStartAndEnd(start, end)) {
+            return null;
+        }
+
         return "";
+    }
+
+    public Boolean validateStartAndEnd(int start, int end) {
+        boolean isStartLessThanEnd = start <= end;
+        boolean isInRange = start > 1 && start <= 1000 && end > 1 && end <= 1000;
+        return isInRange && isStartLessThanEnd;
     }
 }
