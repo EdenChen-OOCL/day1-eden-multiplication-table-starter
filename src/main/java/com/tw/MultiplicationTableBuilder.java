@@ -42,6 +42,17 @@ public class MultiplicationTableBuilder {
         return columnSumEachRow;
     }
 
+    private String generateLineString(int startColumn, int rowNumber, int columnSum) {
+        StringBuilder lineString = new StringBuilder();
+        for(int currentColumn = startColumn; currentColumn <= columnSum; currentColumn++) {
+            lineString.append(generateExpression(currentColumn, rowNumber));
+            if (currentColumn < columnSum) {
+                lineString.append(" ");
+            }
+        }
+        return lineString.toString();
+    }
+
     private String generateExpression(int start, int end) {
         return String.format("%d*%d=%d", start, end, start * end);
     }
