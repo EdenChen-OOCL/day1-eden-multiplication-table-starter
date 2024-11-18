@@ -15,13 +15,18 @@ public class MultiplicationTableBuilder {
         if (!validateStartAndEnd(start, end)) {
             return null;
         }
+        int rowSum = calculateRowSum(start, end);
 
         return "";
     }
 
-    public Boolean validateStartAndEnd(int start, int end) {
+    private Boolean validateStartAndEnd(int start, int end) {
         boolean isStartLessThanEnd = start <= end;
         boolean isInRange = start > 1 && start <= 1000 && end > 1 && end <= 1000;
         return isInRange && isStartLessThanEnd;
+    }
+
+    private int calculateRowSum(int start, int end) {
+        return end - start + 1;
     }
 }
