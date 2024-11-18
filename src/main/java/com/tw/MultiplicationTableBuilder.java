@@ -1,5 +1,8 @@
 package com.tw;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MultiplicationTableBuilder {
 
     public static void main(String[] args) {
@@ -16,6 +19,7 @@ public class MultiplicationTableBuilder {
             return null;
         }
         int rowSum = calculateRowSum(start, end);
+        List<Integer> columnSumEachRow = calculateColumnSumEachRow(rowSum);
 
         return "";
     }
@@ -28,5 +32,13 @@ public class MultiplicationTableBuilder {
 
     private int calculateRowSum(int start, int end) {
         return end - start + 1;
+    }
+
+    private List<Integer> calculateColumnSumEachRow(int rowSum) {
+        List<Integer> columnSumEachRow = new ArrayList<>();
+        for(int start = 1; start <= rowSum; start++) {
+            columnSumEachRow.add(start);
+        }
+        return columnSumEachRow;
     }
 }
