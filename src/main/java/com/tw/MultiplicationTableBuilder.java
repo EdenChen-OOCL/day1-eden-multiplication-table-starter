@@ -6,12 +6,12 @@ public class MultiplicationTableBuilder {
         MultiplicationTableBuilder builder = new MultiplicationTableBuilder();
         int start = 2;
         int end = 4;
-        String multiplicationTable = builder.build(start, end);
+        String multiplicationTable = builder.generateMultiplicationTable(start, end);
 
         System.out.println(multiplicationTable);
     }
 
-    public String build(int start, int end) {
+    public String generateMultiplicationTable(int start, int end) {
         return "";
     }
 }
