@@ -41,4 +41,8 @@ public class MultiplicationTableBuilder {
         }
         return columnSumEachRow;
     }
+
+    private String generateExpression(int start, int end) {
+        return String.format("%d*%d=%d", start, end, start * end);
+    }
 }
